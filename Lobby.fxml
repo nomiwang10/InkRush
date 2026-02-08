@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.image.Image?>
+
+
+<?import javafx.scene.layout.HBox?>
+<VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="700.0" style="-fx-background-image: url('InkRush.png'); -fx-background-size: cover; -fx-background-position: center center; -fx-background-repeat: no-repeat;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LobbyController">
+
+    <StackPane VBox.vgrow="ALWAYS">
+        <padding>
+            <Insets left="20.0" right="20.0" top="20.0" />
+        </padding>
+
+        <Label text="Lobby" StackPane.alignment="TOP_CENTER">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+
+        <VBox maxHeight="-Infinity" maxWidth="-Infinity" spacing="5.0" StackPane.alignment="TOP_LEFT">
+            <Label text="Server IP:">
+                <font>
+                    <Font name="System Bold Italic" size="14.0" />
+                </font>
+            </Label>
+
+            <TextField fx:id="ipAddressField" maxWidth="200.0" promptText="Enter IP Address">
+                <font>
+                    <Font size="12.0" />
+                </font>
+                <VBox.margin>
+                    <Insets bottom="10.0" />
+                </VBox.margin>
+            </TextField>
+
+            <Label text="Player Name:">
+                <font>
+                    <Font name="System Bold Italic" size="14.0" />
+                </font>
+            </Label>
+
+            <TextField fx:id="playerNameField" maxWidth="200.0" promptText="Enter Name">
+                <font>
+                    <Font size="12.0" />
+                </font>
+                <VBox.margin>
+                    <Insets bottom="10.0" />
+                </VBox.margin>
+            </TextField>
+
+            <Button fx:id="joinButton" onAction="#onJoinClicked" prefHeight="40.0" prefWidth="120.0" text="Join Game">
+                <font>
+                    <Font name="System Bold" size="14.0" />
+                </font>
+            </Button>
+        </VBox>
+
+        <VBox alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" spacing="5.0" StackPane.alignment="TOP_RIGHT">
+            <Label text="Draw Avatar">
+                <font>
+                    <Font name="System Bold Italic" size="16.0" />
+                </font>
+            </Label>
+
+            <StackPane style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: #2F4F4F; -fx-border-width: 3; -fx-border-radius: 8; -fx-padding: 2;">
+                <Canvas fx:id="avatarCanvas" height="120.0" width="120.0" />
+            </StackPane>
+
+            <Button fx:id="clearAvatarButton" onAction="#onClearAvatarClicked" alignment="CENTER" contentDisplay="TOP" prefHeight="36.0" prefWidth="86.0" text="Clear" textAlignment="CENTER">
+                <font>
+                    <Font name="System Bold" size="14.0" />
+                </font>
+            </Button>
+        </VBox>
+
+    </StackPane>
+
+    <ImageView fx:id="logoImageView" fitHeight="200.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+        <VBox.margin>
+            <Insets bottom="20.0" top="20.0" />
+        </VBox.margin>
+    </ImageView>
+
+    <HBox alignment="BOTTOM_RIGHT" prefWidth="200.0">
+        <padding>
+            <Insets bottom="10.0" right="10.0" />
+        </padding>
+        <children>
+            <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@Inkert.png" />
+                </image>
+            </ImageView>
+        </children>
+    </HBox>
+</VBox>

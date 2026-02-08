@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="695.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ServerController">
+   <children>
+      <Text layoutX="301.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Server" wrappingWidth="93.64569091796875">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="displayField1" layoutX="266.0" layoutY="83.0" prefHeight="64.0" prefWidth="375.0" />
+      <Text layoutX="91.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Client 1" wrappingWidth="116.53668212890625">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text layoutX="91.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Client 2" wrappingWidth="116.53668212890625">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="displayField2" layoutX="266.0" layoutY="165.0" prefHeight="64.0" prefWidth="375.0" />
+      <TextArea fx:id="displayField3" layoutX="266.0" layoutY="248.0" prefHeight="64.0" prefWidth="375.0" />
+      <Text layoutX="91.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Client 3" wrappingWidth="116.53668212890625">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text layoutX="91.0" layoutY="373.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Client 4" wrappingWidth="116.53668212890625">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="displayField4" layoutX="266.0" layoutY="331.0" prefHeight="64.0" prefWidth="375.0" />
+      <Text layoutX="91.0" layoutY="448.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Client 5" wrappingWidth="116.53668212890625">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="displayField5" layoutX="266.0" layoutY="406.0" prefHeight="64.0" prefWidth="375.0" />
+   </children>
+</AnchorPane>

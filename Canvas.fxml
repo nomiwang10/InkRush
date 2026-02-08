@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="677.0" prefWidth="720.0" spacing="20" style="-fx-background-color: linear-gradient(to bottom, #1E7FD6 0%, #1E7FD6 70%, #5B6BC1 70%, #5B6BC1 100%);" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CanvasController">
+    <padding>
+        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+    </padding>
+
+    <HBox alignment="CENTER_LEFT" prefWidth="690.0" spacing="10">
+        <children>
+            <Label minWidth="140.0" prefHeight="39.0" prefWidth="140.0" style="-fx-font-weight: 900; -fx-font-size: 32px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 3, 0, 2, 2);" text="InkRush" textFill="#FFFFFF">
+                <font>
+                    <Font name="Impact" size="32.0" />
+                </font>
+            </Label>
+
+            <Region HBox.hgrow="ALWAYS" />
+
+            <Label text="Player Name:" textFill="#FFFFFF">
+                <font>
+                    <Font name="Lao MN Bold" size="18.0" />
+                </font>
+            </Label>
+
+            <Label fx:id="nameLabel" wrapText="true" maxWidth="110.0" prefWidth="110.0" minHeight="-Infinity" textFill="#FFD700">
+                <font>
+                    <Font name="System Bold" size="16.0" />
+                </font>
+            </Label>
+
+            <Button fx:id="startGame" prefHeight="46.0" prefWidth="150.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 3; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 5, 0, 0, 2);" text="Start Game">
+                <font>
+                    <Font name="Lao MN Bold" size="13.0" />
+                </font>
+            </Button>
+
+            <Label fx:id="timerLabel" minWidth="40.0" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-background-color: rgba(0,0,0,0.15); -fx-padding: 8 15 8 15; -fx-background-radius: 3;" text="60" textFill="#FFFFFF" />
+
+            <Label text="Score:" textFill="#FFFFFF">
+                <font>
+                    <Font name="Lao MN Bold" size="18.0" />
+                </font>
+            </Label>
+            <Label fx:id="scoreLabel" text="0" textFill="WHITE">
+                <font>
+                    <Font name="Lao MN Bold" size="16.0" />
+                </font>
+            </Label>
+        </children>
+    </HBox>
+
+    <GridPane alignment="CENTER" prefWidth="690.0">
+        <columnConstraints>
+            <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" percentWidth="51.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" percentWidth="26.0" />
+            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" percentWidth="23.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints vgrow="SOMETIMES" />
+        </rowConstraints>
+
+        <children>
+            <HBox alignment="CENTER_LEFT" spacing="10" GridPane.columnIndex="0">
+                <children>
+                    <Label text="Word to Draw:" textFill="#FFFFFF">
+                        <font><Font name="Lao MN Bold" size="18.0" /></font>
+                    </Label>
+                    <Label fx:id="wordToGuessLabel" textFill="#FFFFFF">
+                        <font>
+                            <Font name="Lao MN Bold" size="18.0" />
+                        </font>
+                    </Label>
+                </children>
+            </HBox>
+
+            <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                <image>
+                    <Image url="@Inkert.png" />
+                </image>
+            </ImageView>
+
+            <Label fx:id="roundLabel" text="Round: /5" textFill="#FFFFFF" GridPane.columnIndex="2">
+                <font>
+                    <Font name="Lao MN Bold" size="18.0" />
+                </font>
+            </Label>
+        </children>
+    </GridPane>
+
+    <HBox alignment="CENTER" prefWidth="690.0" spacing="20" VBox.vgrow="ALWAYS">
+        <children>
+            <StackPane style="-fx-background-color: white; -fx-border-color: #999999; -fx-border-width: 2; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.25), 8, 0, 0, 3);">
+                <Canvas fx:id="drawingCanvas" height="350" width="480" />
+            </StackPane>
+
+            <VBox alignment="TOP_CENTER" prefWidth="200" spacing="15">
+                <Label text="Your Avatar" textFill="#FFFFFF">
+                    <font>
+                        <Font name="Lao MN Bold" size="16.0" />
+                    </font>
+                </Label>
+
+                <StackPane style="-fx-background-color: white; -fx-border-color: #999999; -fx-border-width: 2; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.25), 8, 0, 0, 3);">
+                    <Canvas fx:id="avatarCanvas" height="100.0" width="100.0" />
+                </StackPane>
+
+                <VBox alignment="CENTER" spacing="10">
+                    <Button fx:id="drawButton" onAction="#onDrawClicked" prefHeight="35.0" prefWidth="180.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 3; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 4, 0, 0, 2);" text="Draw" textFill="#5B6BC1">
+                        <font>
+                            <Font name="Lao MN Bold" size="11.0" />
+                        </font>
+                    </Button>
+
+                    <Button fx:id="eraserButton" onAction="#onEraserClicked" prefHeight="35.0" prefWidth="180.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 3; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 4, 0, 0, 2);" text="Eraser" textFill="#5B6BC1">
+                        <font>
+                            <Font name="Lao MN Bold" size="11.0" />
+                        </font>
+                    </Button>
+
+                    <Button fx:id="clearButton" onAction="#clearCanvas" prefHeight="35.0" prefWidth="180.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 3; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 4, 0, 0, 2);" text="Clear" textFill="#5B6BC1">
+                        <font>
+                            <Font name="Lao MN Bold" size="11.0" />
+                        </font>
+                    </Button>
+                </VBox>
+
+                <VBox alignment="CENTER" spacing="10">
+                    <HBox alignment="CENTER" spacing="10">
+                        <Label text="Color:" textFill="#FFFFFF">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <ColorPicker fx:id="colorPicker" prefHeight="71.0" prefWidth="110.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 3, 0, 0, 1);" />
+                    </HBox>
+
+                    <HBox alignment="CENTER" spacing="10">
+                        <Label text="Size:" textFill="#FFFFFF">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <Slider fx:id="sizeSlider" max="20" min="1" prefWidth="110" value="4" />
+                    </HBox>
+
+                    <Label fx:id="sizeValueLabel" alignment="CENTER" text="Brush: 4px" textFill="#FFFFFF">
+                        <font>
+                            <Font name="Lao MN Bold" size="13.0" />
+                        </font>
+                    </Label>
+                </VBox>
+            </VBox>
+        </children>
+    </HBox>
+
+    <HBox alignment="TOP_LEFT" prefWidth="690.0" spacing="20">
+        <children>
+            <VBox spacing="10" HBox.hgrow="ALWAYS">
+                <HBox spacing="10">
+                    <children>
+                        <TextField fx:id="chatTextInput" onAction="#sendServerChat" promptText="Enter Chats Here" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 3, 0, 0, 1);" HBox.hgrow="ALWAYS" />
+                        <Button fx:id="chatButton" onAction="#sendServerChat" style="-fx-background-color: #FFFFFF; -fx-background-radius: 3; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 4, 0, 0, 2);" text="Chat" textFill="#5B6BC1">
+                            <font>
+                                <Font name="Lao MN Bold" size="12.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </HBox>
+
+                <TextArea fx:id="chatTextArea" editable="false" prefHeight="100.0" style="-fx-background-color: white; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 2);" />
+
+                <HBox alignment="CENTER" spacing="10">
+                    <Button fx:id="WordOption1" mnemonicParsing="false" style="-fx-background-color: #FFFFFF; -fx-background-radius: 3; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 4, 0, 0, 2);" text="Option 1" textFill="#5B6BC1">
+                        <font>
+                            <Font name="Lao MN Bold" size="12.0" />
+                        </font>
+                    </Button>
+                    <Button fx:id="WordOption2" mnemonicParsing="false" style="-fx-background-color: #FFFFFF; -fx-background-radius: 3; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 4, 0, 0, 2);" text="Option 2" textFill="#5B6BC1">
+                        <font>
+                            <Font name="Lao MN Bold" size="12.0" />
+                        </font>
+                    </Button>
+                    <Button fx:id="WordOption3" mnemonicParsing="false" style="-fx-background-color: #FFFFFF; -fx-background-radius: 3; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 4, 0, 0, 2);" text="Option 3" textFill="#5B6BC1">
+                        <font>
+                            <Font name="Lao MN Bold" size="12.0" />
+                        </font>
+                    </Button>
+                </HBox>
+            </VBox>
+
+            <VBox alignment="TOP_CENTER" prefWidth="150" spacing="10">
+                <Label text="Leaderboard" textFill="#FFFFFF">
+                    <font><Font name="Lao MN Bold" size="18.0" /></font>
+                </Label>
+                <Label fx:id="leaderboardSpot1" text="1." textFill="WHITE">
+                    <font>
+                        <Font name="Lao MN Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label fx:id="leaderboardSpot2" text="2." textFill="#FFFFFF">
+                    <font>
+                        <Font name="Lao MN Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label fx:id="leaderboardSpot3" text="3." textFill="#FFFFFF">
+                    <font>
+                        <Font name="Lao MN Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label fx:id="leaderboardSpot4" text="4." textFill="#FFFFFF">
+                    <font>
+                        <Font name="Lao MN Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label fx:id="leaderboardSpot5" text="5." textFill="#FFFFFF">
+                    <font>
+                        <Font name="Lao MN Bold" size="13.0" />
+                    </font>
+                </Label>
+            </VBox>
+        </children>
+    </HBox>
+
+</VBox>
